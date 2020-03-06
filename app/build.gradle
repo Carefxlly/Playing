@@ -1,0 +1,131 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.wherevere.jingbin.cloudreader"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 3
+        versionName "3.1.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+        multiDexEnabled true
+
+       ndk {
+           abiFilters 'armeabi-v7a', "x86" // 选择要添加的对应cpu类型的.so库。
+       }
+    }
+
+//    kapt {
+//        generateStubs = true
+//    }
+
+//    viewBinding {
+//        enabled = true
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // // 注释下面代码(签名配置)
+    // signingConfigs {
+    //     if (propertyHaveSigningConfigs) {
+    //         debug {
+    //             storeFile file(pStoreFile)
+    //             storePassword pStorePassword
+    //             keyAlias pKeyAlias
+    //             keyPassword pKeyPassword
+    //         }
+
+    //         release {
+    //             storeFile file(pStoreFile)
+    //             storePassword pStorePassword
+    //             keyAlias pKeyAlias
+    //             keyPassword pKeyPassword
+    //         }
+    //     }
+    // }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/proguard/coroutines.pro'
+    }
+}
+dependencies {
+
+    //test
+    testImplementation "junit:junit:$rootProject.Junit_Version"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':network')
+    implementation project(':xrecyclerview')
+    implementation(name: 'banner-release', ext: 'aar')
+    implementation(name: 'zoomlibrary-release', ext: 'aar')
+    implementation(name: 'slider-release', ext: 'aar')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.Kotlin_Version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.Coroutines_Version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.Coroutines_Version"
+
+    implementation "androidx.appcompat:appcompat:$rootProject.Androidx_Version"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.Support_Library_Version"
+    implementation "androidx.cardview:cardview:$rootProject.Support_Library_Version"
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "com.google.android.material:material:$rootProject.Androidx_Version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.Lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.Lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.Lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$rootProject.Lifecycle_Version"
+    implementation "androidx.paging:paging-runtime:$rootProject.Lifecycle_Old_Version"
+    implementation "androidx.room:room-runtime:$rootProject.Lifecycle_Version"
+    implementation "androidx.room:room-rxjava2:$rootProject.Lifecycle_Version"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.Lifecycle_Version"
+    kapt "androidx.room:room-compiler:$rootProject.Lifecycle_Version"
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'org.jsoup:jsoup:1.11.2'
+    implementation 'com.airbnb.android:lottie:3.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.10.0'
+
+    // bugly
+    implementation 'com.tencent.bugly:crashreport:2.6.6.1'
+    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    implementation 'jp.wasabeef:glide-transformations:4.0.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.cocosw:bottomsheet:1.5.0'
+}

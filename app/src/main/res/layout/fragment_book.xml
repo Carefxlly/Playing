@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_book"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            app:tabMode="fixed"
+            app:tabMinWidth="0dp"
+            app:tabTextAppearance="@style/TabLayoutText"
+            app:tabSelectedTextColor="@color/colorTabTextCheck"
+            app:tabTextColor="@android:color/black"
+            app:tabBackground="@drawable/ripple_tab_bg"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_book"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
+</layout>

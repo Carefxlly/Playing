@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        maven { url 'https://mirrors.huaweicloud.com/repository/maven/' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://mirrors.huaweicloud.com/repository/maven/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    minSdkVersion = 21
+    targetSdkVersion = 29
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.2'
+
+    Support_Library_Version = '1.0.0'
+    Androidx_Version = '1.1.0'
+    Kotlin_Version = '1.3.61'
+    Coroutines_Version = '1.3.2'
+    Lifecycle_Version = '2.2.0'
+    Lifecycle_Old_Version = '2.1.0'
+    Retrofit_Version = '2.6.2'
+    Junit_Version = '4.12'
+}

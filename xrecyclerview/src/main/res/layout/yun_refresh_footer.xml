@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:paddingBottom="10dp">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_progress"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/yun_anim"/>-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/msg"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="10dp"-->
+        <!--android:text="@string/listview_loading"-->
+        <!--android:textColor="#333333"/>-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/foot_loading"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_color_three_28ms"/>
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/listview_loading"
+            android:textColor="#333333"
+            />
+
+    </LinearLayout>
+</LinearLayout>
